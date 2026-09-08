@@ -1,0 +1,79 @@
+.layout {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+  }
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .bio {
+    flex: 3;
+  }
+}
+
+.bioText {
+  font-size: var(--text-body-lg-size);
+}
+
+.focusText {
+  font-size: var(--text-body-md-size);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .card {
+    flex: 2;
+  }
+}
+
+.infoRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.iconChip {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoLabel {
+  color: var(--color-text-muted);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.infoValue {
+  font-size: var(--text-body-md-size);
+}

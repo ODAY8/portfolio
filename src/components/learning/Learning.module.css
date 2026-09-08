@@ -1,0 +1,35 @@
+.wrap {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.badge {
+  width: 280px;
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  transition: transform 180ms ease-out, box-shadow 180ms ease-out;
+}
+
+.badge:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 24px 1px rgba(100, 255, 218, 0.2);
+}
+
+.badge svg {
+  color: var(--color-accent);
+}
+
+.badgeTitle {
+  margin-top: 14px;
+  font-size: var(--text-title-lg-size);
+  font-weight: var(--text-title-lg-weight);
+}
+
+.badgeDescription {
+  margin-top: 8px;
+  font-size: var(--text-body-md-size);
+}
