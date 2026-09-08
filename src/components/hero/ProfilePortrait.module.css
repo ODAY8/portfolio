@@ -1,0 +1,53 @@
+.wrapper {
+  --size: 128px;
+  width: var(--size);
+  height: var(--size);
+  flex-shrink: 0;
+  /* Above the hero text on mobile/tablet, to the right of it on desktop --
+     see the matching `order` override on Hero's .textColumn. */
+  order: 1;
+}
+
+@media (min-width: 600px) {
+  .wrapper {
+    --size: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    --size: 260px;
+    order: 2;
+  }
+}
+
+.ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--size) * 0.035);
+  box-shadow: 0 0 calc(var(--size) * 0.25) calc(var(--size) * 0.01) rgba(100, 255, 218, 0.35);
+}
+
+.inner {
+  border-radius: 50%;
+  background: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: calc(var(--size) * 0.02);
+}
+
+.image {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 32.5%; /* Flutter Alignment(0, -0.35) -> (y+1)/2 */
+}

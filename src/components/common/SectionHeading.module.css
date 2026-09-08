@@ -1,0 +1,20 @@
+.eyebrow {
+  display: block;
+  color: var(--color-accent);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: var(--text-headline-lg-size);
+  font-weight: var(--text-headline-lg-weight);
+}
+
+.subtitle {
+  margin-top: 12px;
+  max-width: 640px;
+  font-size: var(--text-body-lg-size);
+  color: var(--color-text-secondary);
+}

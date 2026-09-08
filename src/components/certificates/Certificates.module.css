@@ -1,0 +1,117 @@
+.grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition:
+    transform 200ms,
+    border-color 200ms,
+    box-shadow 200ms;
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px 0 rgba(100, 255, 218, 0.18);
+}
+
+.thumbnailWrap {
+  height: 180px;
+  background: var(--color-surface-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.thumbnailFallback {
+  color: var(--color-text-muted);
+}
+
+.fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.categoryPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--color-accent-dim);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+}
+
+.date {
+  margin-left: auto;
+  color: var(--color-text-secondary);
+  font-size: var(--text-body-sm-size);
+}
+
+.title {
+  margin-top: 12px;
+  font-size: var(--text-title-lg-size);
+  font-weight: var(--text-title-lg-weight);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.organization {
+  margin-top: 4px;
+  font-size: var(--text-body-md-size);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.viewButton {
+  margin-top: 16px;
+  align-self: flex-start;
+}
