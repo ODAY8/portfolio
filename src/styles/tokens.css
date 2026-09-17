@@ -1,65 +1,81 @@
-/* Design tokens ported 1:1 from the Flutter source's lib/theme/ files.
-   This is the single place to change the site's color/type/spacing system. */
+/* Design tokens for the COZYDIADORA-inspired redesign: warm off-white
+   editorial system with near-black type and a small set of pastel accent
+   ink/tint pairs used sparingly on specific cards and badges. */
 :root {
-  /* Core gradient stops (app_colors.dart heroGradient: #0F2027 -> #203A43 -> #2C5364) */
-  --color-dark-navy: #0f2027;
-  --color-mid-teal: #203a43;
-  --color-deep-blue: #2c5364;
-
-  /* Bright cyan accent for CTAs, links, and hover states */
-  --color-accent: #64ffda;
-  --color-accent-dim: #4fd1c5;
-
   /* Surfaces */
-  --color-background: #0a1518;
-  --color-surface: #132a32;
-  --color-surface-hover: #1b3740;
-  --color-border: rgba(255, 255, 255, 0.1216);
-  --color-border-strong: rgba(255, 255, 255, 0.2471);
+  --color-background: #f6f3ec;
+  --color-background-alt: #efeade;
+  --color-surface: #ffffff;
+  --color-surface-hover: #faf8f2;
+  --color-border: rgba(21, 21, 18, 0.09);
+  --color-border-strong: rgba(21, 21, 18, 0.16);
 
   /* Text */
-  --color-text-primary: #e9f6f5;
-  --color-text-secondary: #a8c0c2;
-  --color-text-muted: #6e8a8d;
+  --color-text-primary: #15150f;
+  --color-text-secondary: #57564c;
+  --color-text-muted: #8b8a7d;
+  --color-inverse: #f6f3ec;
 
-  --gradient-hero: linear-gradient(
-    135deg,
-    var(--color-dark-navy) 0%,
-    var(--color-mid-teal) 50%,
-    var(--color-deep-blue) 100%
-  );
-  --gradient-accent: linear-gradient(90deg, var(--color-accent-dim) 0%, var(--color-accent) 100%);
+  /* Ink used for CTAs/emphasis -- near-black, not pure #000 */
+  --color-ink: #15150f;
+  --color-ink-hover: #2c2b23;
 
-  /* Typography (app_text_styles.dart) */
+  /* Accent pairs: <name>-ink is used for text/icons, <name>-tint for card
+     backgrounds. Kept few and deliberate -- accents highlight, not decorate. */
+  --color-accent-teal: #0f8f7f;
+  --color-accent-teal-tint: #dff3ee;
+  --color-accent-lavender: #6a5fce;
+  --color-accent-lavender-tint: #e8e4fb;
+  --color-accent-green: #4f8a3f;
+  --color-accent-green-tint: #e4f3da;
+  --color-accent-blue: #3a63b8;
+  --color-accent-blue-tint: #e3ebfb;
+
+  /* Legacy single-accent alias, still referenced for the odd highlight
+     (focus rings, hero cursor, difficulty pills) -- maps onto the teal accent. */
+  --color-accent: var(--color-accent-teal);
+
+  /* Typography */
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'Fira Code', monospace;
 
-  --text-display-lg-size: 56px;
+  /* Responsive display/heading scale. Sized for the actual hero name
+     ("Mohamed Abdirahman Warsame") rather than a blind large clamp. */
+  --text-display-lg-size: clamp(2.75rem, 6vw + 1rem, 6.25rem);
   --text-display-lg-weight: 700;
-  --text-display-md-size: 40px;
+  --text-display-md-size: clamp(2.25rem, 5vw + 1rem, 3.5rem);
   --text-display-md-weight: 700;
-  --text-headline-lg-size: 32px;
+  --text-headline-lg-size: clamp(2rem, 2.5vw + 1rem, 3.25rem);
   --text-headline-lg-weight: 600;
-  --text-headline-md-size: 24px;
+  --text-headline-md-size: clamp(1.35rem, 1vw + 1rem, 1.75rem);
   --text-headline-md-weight: 600;
   --text-title-lg-size: 20px;
-  --text-title-lg-weight: 500;
+  --text-title-lg-weight: 600;
   --text-body-lg-size: 18px;
   --text-body-md-size: 15px;
   --text-body-sm-size: 13px;
   --text-mono-size: 16px;
   --text-mono-sm-size: 12px;
 
-  --line-height-heading: 1.1;
-  --line-height-body: 1.5;
+  --line-height-heading: 1.08;
+  --line-height-body: 1.6;
 
-  /* Breakpoints (app_breakpoints.dart) -- referenced as literal values in
-     media queries below since CSS can't consume custom properties there,
-     kept here as the documented source of truth: mobile <600px,
-     tablet 600-1023px, desktop >=1024px (tablet & desktop share the same
-     column counts everywhere in practice). */
+  /* Radius / shadow scale -- rounded cards, pill buttons, soft shadows
+     (no neon glow). */
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 1px 2px rgba(21, 21, 18, 0.04), 0 16px 32px -20px rgba(21, 21, 18, 0.18);
+  --shadow-card-hover: 0 1px 2px rgba(21, 21, 18, 0.05), 0 24px 44px -20px rgba(21, 21, 18, 0.24);
+  --shadow-pop: 0 20px 60px -18px rgba(21, 21, 18, 0.28);
+
+  /* Breakpoints (documented source of truth, used as literal values in
+     media queries since custom properties can't be consumed there):
+     mobile <600px, tablet 600-1023px, desktop >=1024px. */
   --content-max-width: 1200px;
 
-  color-scheme: dark;
+  color-scheme: light;
 }

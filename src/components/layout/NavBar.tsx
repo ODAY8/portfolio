@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu } from 'lucide-react'
 import { NAV_ITEMS, SHORT_NAME } from '../../data/content'
 import { useScrollY } from '../../hooks/useScrollY'
+import { MagneticButton } from '../common/MagneticButton'
 import { MobileMenu } from './MobileMenu'
 import styles from './NavBar.module.css'
 
@@ -11,52 +12,101 @@ interface NavBarProps {
   onNavTap: (id: string) => void
 }
 
-/** Port of nav_bar.dart: transparent at the top, fading to an 85%-opaque
- * dark navy background by 80px of scroll; desktop horizontal links vs.
- * mobile hamburger + bottom sheet, plus the always-present "Problems
- * Solved" link to the separate route. */
+interface IndicatorRect {
+  left: number
+  width: number
+}
+
+/** Floating rounded "pill" nav bar. The active link is tracked by a single
+ * dark pill that slides/resizes to sit behind whichever link is active
+ * (measured via each link's offsetLeft/offsetWidth against the track),
+ * instead of every link independently flashing a background -- reads as
+ * one continuous, designed motion rather than a flat row of buttons.
+ * Links, the "Problems Solved" route, and the Contact CTA are grouped into
+ * visually distinct clusters (divider + outline pill + solid pill) rather
+ * than one undifferentiated line. */
 export function NavBar({ activeIndex, onNavTap }: NavBarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const scrollY = useScrollY()
-  const scrollOpacity = Math.min(scrollY / 80, 1)
+  const scrolled = scrollY > 24
+
+  const linkRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const [indicator, setIndicator] = useState<IndicatorRect | null>(null)
+
+  useLayoutEffect(() => {
+    function measure() {
+      const el = linkRefs.current[activeIndex]
+      if (el) setIndicator({ left: el.offsetLeft, width: el.offsetWidth })
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [activeIndex])
 
   return (
     <>
-      <header
-        className={styles.nav}
-        style={{
-          backgroundColor: `rgba(15, 32, 39, ${0.85 * scrollOpacity})`,
-          borderBottomColor: `rgba(255, 255, 255, ${0.1216 * scrollOpacity})`,
-        }}
-      >
-        <button type="button" className={styles.logo} onClick={() => onNavTap('home')}>
-          {SHORT_NAME}
-        </button>
-        <div className={styles.spacer} />
-        <nav className={styles.desktopLinks}>
-          {NAV_ITEMS.map((item, index) => (
-            <button
-              key={item.id}
-              type="button"
-              className={`${styles.navLink} ${index === activeIndex ? styles.navLinkActive : ''}`}
-              onClick={() => onNavTap(item.id)}
-            >
-              {item.label}
-            </button>
-          ))}
-          <Link to="/problems" className={styles.navLink}>
-            Problems Solved
-          </Link>
-        </nav>
-        <button
-          type="button"
-          className={styles.menuButton}
-          aria-label="Open navigation menu"
-          onClick={() => setMenuOpen(true)}
-        >
-          <Menu />
-        </button>
-      </header>
+      <div className={styles.navWrap}>
+        <header className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
+          <button type="button" className={styles.logo} onClick={() => onNavTap('home')}>
+            {SHORT_NAME}
+          </button>
+
+          <nav className={styles.linksTrack}>
+            <span
+              className={styles.indicator}
+              style={{
+                opacity: indicator ? 1 : 0,
+                transform: `translateX(${indicator?.left ?? 0}px)`,
+                width: indicator?.width ?? 0,
+              }}
+              aria-hidden="true"
+            />
+            {NAV_ITEMS.map((item, index) => {
+              // "Contact" gets its own solid CTA pill in the actions
+              // cluster instead of living in the link track -- skipped
+              // here (index is kept as-is so it still lines up with
+              // useScrollSpy's activeIndex for every other link).
+              if (item.id === 'contact') return null
+              return (
+                <button
+                  key={item.id}
+                  ref={(el) => {
+                    linkRefs.current[index] = el
+                  }}
+                  type="button"
+                  className={`${styles.navLink} ${index === activeIndex ? styles.navLinkActive : ''}`}
+                  onClick={() => onNavTap(item.id)}
+                >
+                  {item.label}
+                </button>
+              )
+            })}
+          </nav>
+
+          <div className={styles.spacer} />
+
+          <div className={styles.actions}>
+            <span className={styles.divider} aria-hidden="true" />
+            <Link to="/problems" className={styles.problemsLink}>
+              Problems Solved
+            </Link>
+            <MagneticButton strength={0.25}>
+              <button type="button" className={styles.contactCta} onClick={() => onNavTap('contact')}>
+                Contact
+              </button>
+            </MagneticButton>
+          </div>
+
+          <button
+            type="button"
+            className={styles.menuButton}
+            aria-label="Open navigation menu"
+            onClick={() => setMenuOpen(true)}
+          >
+            <Menu size={20} />
+          </button>
+        </header>
+      </div>
       <MobileMenu
         open={menuOpen}
         activeIndex={activeIndex}

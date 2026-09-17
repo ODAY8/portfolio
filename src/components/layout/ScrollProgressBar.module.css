@@ -1,0 +1,18 @@
+.track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 45;
+  background: transparent;
+}
+
+.fill {
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--color-ink);
+  transition: transform 80ms linear;
+}

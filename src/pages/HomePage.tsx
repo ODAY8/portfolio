@@ -2,8 +2,10 @@ import { NAV_ITEMS } from '../data/content'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import { NavBar } from '../components/layout/NavBar'
 import { Footer } from '../components/layout/Footer'
+import { ScrollProgressBar } from '../components/layout/ScrollProgressBar'
 import { ScrollToTopButton } from '../components/layout/ScrollToTopButton'
 import { Hero } from '../components/hero/Hero'
+import { IntroOverlay } from '../components/intro/IntroOverlay'
 import { About } from '../components/about/About'
 import { Skills } from '../components/skills/Skills'
 import { Projects } from '../components/projects/Projects'
@@ -21,6 +23,8 @@ export function HomePage() {
 
   return (
     <>
+      <IntroOverlay />
+      <ScrollProgressBar />
       <NavBar activeIndex={activeIndex} onNavTap={scrollToSection} />
       <main>
         <div ref={registerSection('home')}>

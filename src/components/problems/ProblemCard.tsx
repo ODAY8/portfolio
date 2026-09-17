@@ -11,11 +11,13 @@ interface ProblemCardProps {
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' })
 
+/* Hex literals (not CSS var() refs) so the `${color}1a` alpha-suffix trick
+   below produces valid 8-digit hex colors for the pill background. */
 function difficultyColor(difficulty: string): string {
   const lower = difficulty.toLowerCase()
-  if (lower === 'easy') return '#6ee7a8'
-  if (lower === 'hard') return '#ff8a8a'
-  return 'var(--color-accent)'
+  if (lower === 'easy') return '#4f8a3f'
+  if (lower === 'hard') return '#c04848'
+  return '#0f8f7f'
 }
 
 export function ProblemCard({ problem, delayMs }: ProblemCardProps) {

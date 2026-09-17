@@ -11,70 +11,134 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .featured {
+    grid-column: span 2;
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;
-  min-height: 240px;
-  padding: 28px;
+  height: 100%;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   text-decoration: none;
   color: inherit;
+  box-shadow: var(--shadow-card);
   transition:
     transform 200ms,
-    border-color 200ms,
     box-shadow 200ms;
 }
 
 .card:hover,
 .card:focus-visible {
-  border-color: var(--color-accent);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 28px 0 rgba(100, 255, 218, 0.18);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
 }
 
-.cardHead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.iconChip {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(100, 255, 218, 0.1);
-  color: var(--color-accent);
+.cover {
+  position: relative;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  transition: transform 300ms ease-out;
+}
+
+.featured .cover {
+  height: 240px;
+}
+
+.card:hover .cover {
+  transform: scale(1.02);
+}
+
+/* Diagonal light sweep across the cover panel on hover -- a cheap,
+   CSS-only "premium" touch (no JS, no reduced-motion concerns since it's
+   a short user-triggered hover, not autoplaying background motion). */
+.cover::after {
+  content: '';
+  position: absolute;
+  inset: -20% -60%;
+  background: linear-gradient(115deg, transparent 42%, rgba(255, 255, 255, 0.55) 50%, transparent 58%);
+  transform: translateX(-60%);
+  transition: transform 700ms ease;
+  pointer-events: none;
+}
+
+.card:hover .cover::after,
+.card:focus-visible .cover::after {
+  transform: translateX(60%);
+}
+
+.coverIcon {
+  color: currentColor;
+}
+
+.accentTeal {
+  background: var(--color-accent-teal-tint);
+  color: var(--color-accent-teal);
+}
+.accentLavender {
+  background: var(--color-accent-lavender-tint);
+  color: var(--color-accent-lavender);
+}
+.accentGreen {
+  background: var(--color-accent-green-tint);
+  color: var(--color-accent-green);
+}
+.accentBlue {
+  background: var(--color-accent-blue-tint);
+  color: var(--color-accent-blue);
 }
 
 .arrow {
-  color: var(--color-text-secondary);
-  opacity: 0.4;
-  transition: opacity 150ms;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  border-radius: 50%;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.85;
+  transition:
+    opacity 150ms,
+    transform 150ms;
 }
 .card:hover .arrow,
 .card:focus-visible .arrow {
   opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
 }
 
 .title {
-  margin-top: 18px;
   font-size: var(--text-headline-md-size);
   font-weight: var(--text-headline-md-weight);
+  color: var(--color-text-primary);
 }
 
 .description {
   margin-top: 10px;
   flex: 1;
   font-size: var(--text-body-md-size);
+  color: var(--color-text-secondary);
 }
 
 .techStack {
-  margin-top: 14px;
+  margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
