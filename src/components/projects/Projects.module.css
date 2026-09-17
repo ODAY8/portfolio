@@ -25,8 +25,6 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  text-decoration: none;
-  color: inherit;
   box-shadow: var(--shadow-card);
   transition:
     transform 200ms,
@@ -34,7 +32,7 @@
 }
 
 .card:hover,
-.card:focus-visible {
+.card:focus-within {
   transform: translateY(-6px);
   box-shadow: var(--shadow-card-hover);
 }
@@ -53,7 +51,8 @@
   height: 240px;
 }
 
-.card:hover .cover {
+.card:hover .cover,
+.cover:focus-visible {
   transform: scale(1.02);
 }
 
@@ -71,7 +70,7 @@
 }
 
 .card:hover .cover::after,
-.card:focus-visible .cover::after {
+.cover:focus-visible::after {
   transform: translateX(60%);
 }
 
@@ -112,7 +111,7 @@
     transform 150ms;
 }
 .card:hover .arrow,
-.card:focus-visible .arrow {
+.cover:focus-visible .arrow {
   opacity: 1;
   transform: translate(2px, -2px);
 }
@@ -142,4 +141,36 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.links {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-primary);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    border-color 150ms,
+    background-color 150ms,
+    transform 80ms ease-out;
+}
+.linkButton:hover,
+.linkButton:focus-visible {
+  border-color: var(--color-ink);
+  background: var(--color-background);
+}
+.linkButton:active {
+  transform: scale(0.96);
 }

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, ExternalLink, Github } from 'lucide-react'
 import type { Project } from '../../types/content'
 import { Chip } from '../common/Chip'
 import { FadeInSection } from '../common/FadeInSection'
@@ -13,20 +13,28 @@ interface ProjectCardProps {
 
 const ACCENT_CLASSES = ['accentTeal', 'accentLavender', 'accentGreen', 'accentBlue'] as const
 
-/** The whole card is a real link (not a div with a click handler) so it's
- * keyboard-focusable and behaves like a link should. No project screenshots
- * exist in the current data, so the cover panel uses a large tinted icon
- * treatment instead of an invented image. */
+/** The cover panel is its own real link to the repo (keyboard-focusable,
+ * behaves like a link should); explicit Code/Live Demo links sit in the
+ * footer for projects that have a live deployment, since a project can now
+ * have two distinct destinations and nesting an <a> inside an <a> isn't
+ * valid HTML. No project screenshots exist for most entries, so the cover
+ * panel uses a large tinted icon treatment instead of an invented image. */
 export function ProjectCard({ project, delayMs, accentIndex, featured }: ProjectCardProps) {
   const accentClass = styles[ACCENT_CLASSES[accentIndex % ACCENT_CLASSES.length]]
 
   return (
     <FadeInSection delayMs={delayMs} className={featured ? styles.featured : undefined}>
-      <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className={styles.card}>
-        <div className={`${styles.cover} ${accentClass}`}>
+      <article className={styles.card}>
+        <a
+          href={project.repoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${styles.cover} ${accentClass}`}
+          aria-label={`${project.title} repository on GitHub`}
+        >
           <project.icon className={styles.coverIcon} size={featured ? 56 : 40} strokeWidth={1.5} />
           <ArrowUpRight className={styles.arrow} size={20} aria-hidden="true" />
-        </div>
+        </a>
         <div className={styles.body}>
           <h3 className={styles.title}>{project.title}</h3>
           <p className={styles.description}>{project.description}</p>
@@ -35,8 +43,20 @@ export function ProjectCard({ project, delayMs, accentIndex, featured }: Project
               <Chip key={tech} label={tech} variant="tag" />
             ))}
           </div>
+          <div className={styles.links}>
+            <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+              <Github size={15} />
+              Code
+            </a>
+            {project.liveUrl && (
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                <ExternalLink size={15} />
+                Live Demo
+              </a>
+            )}
+          </div>
         </div>
-      </a>
+      </article>
     </FadeInSection>
   )
 }
