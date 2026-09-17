@@ -8,6 +8,8 @@ export interface Project {
   description: string
   techStack: string[]
   repoUrl: string
+  /** Deployed/live demo URL, only when the project is actually hosted somewhere. */
+  liveUrl?: string
   icon: IconType
 }
 

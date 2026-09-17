@@ -12,11 +12,13 @@ import {
   Cloud,
   Code2,
   Compass,
+  Eye,
   GraduationCap,
   ListChecks,
   Mail,
   MessageSquare,
   Network,
+  Scale,
   Search,
   Shield,
   ShieldCheck,
@@ -129,6 +131,26 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 // Projects
 // ---------------------------------------------------------------------
 export const PROJECTS: Project[] = [
+  {
+    title: 'EdgePilot AI',
+    description:
+      'An AI-powered safety monitoring platform that uses computer vision to detect safety events, assess ' +
+      'risk, and provide actionable recommendations for industrial environments.',
+    techStack: ['Python', 'FastAPI', 'React', 'Gemini API', 'Groq'],
+    repoUrl: `${GITHUB_URL}/edgepilot-ai`,
+    liveUrl: 'https://edgepilot-ai-wk15.vercel.app/',
+    icon: Eye,
+  },
+  {
+    title: 'BiasMap',
+    description:
+      'An AI fairness platform that analyzes AI systems and data for bias, visualizes fairness issues, and ' +
+      'provides insights to help reduce bias.',
+    techStack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Groq'],
+    repoUrl: `${GITHUB_URL}/BiasMap`,
+    liveUrl: 'https://bias-map-pink.vercel.app/',
+    icon: Scale,
+  },
   {
     title: 'Food Rescue Donation Platform',
     description:
