@@ -87,6 +87,9 @@ export function NavBar({ activeIndex, onNavTap }: NavBarProps) {
 
           <div className={styles.actions}>
             <span className={styles.divider} aria-hidden="true" />
+            <Link to="/architecture" className={styles.problemsLink}>
+              Architecture
+            </Link>
             <Link to="/problems" className={styles.problemsLink}>
               Problems Solved
             </Link>

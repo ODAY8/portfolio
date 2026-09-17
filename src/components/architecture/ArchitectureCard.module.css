@@ -1,0 +1,98 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 200ms,
+    box-shadow 200ms;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.preview {
+  display: block;
+  width: 100%;
+  height: 220px;
+  padding: 20px;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-background);
+  overflow: hidden;
+  transition: background-color 150ms;
+}
+.preview:hover,
+.preview:focus-visible {
+  background: var(--color-background-alt);
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.categoryPill {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.accentBlue {
+  background: var(--color-accent-blue-tint);
+  color: var(--color-accent-blue);
+}
+.accentLavender {
+  background: var(--color-accent-lavender-tint);
+  color: var(--color-accent-lavender);
+}
+.accentTeal {
+  background: var(--color-accent-teal-tint);
+  color: var(--color-accent-teal);
+}
+.accentGreen {
+  background: var(--color-accent-green-tint);
+  color: var(--color-accent-green);
+}
+
+.title {
+  margin-top: 14px;
+  font-size: var(--text-headline-md-size);
+  font-weight: var(--text-headline-md-weight);
+  color: var(--color-text-primary);
+}
+
+.description {
+  margin-top: 8px;
+  flex: 1;
+  font-size: var(--text-body-md-size);
+  color: var(--color-text-secondary);
+}
+
+.techStack {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.viewButton {
+  margin-top: 20px;
+  align-self: flex-start;
+}

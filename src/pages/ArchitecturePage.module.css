@@ -1,0 +1,73 @@
+.appBar {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+@media (min-width: 1024px) {
+  .appBar {
+    padding: 0 32px;
+  }
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: border-color 150ms;
+}
+.backButton:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-background);
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-text-primary);
+}
+
+.appBarLabel {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.statsRow {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+}
+
+.grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
