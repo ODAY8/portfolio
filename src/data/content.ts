@@ -13,6 +13,7 @@ import {
   Code2,
   Compass,
   Eye,
+  FileSearch,
   GraduationCap,
   ListChecks,
   Mail,
@@ -150,6 +151,24 @@ export const PROJECTS: Project[] = [
     repoUrl: `${GITHUB_URL}/BiasMap`,
     liveUrl: 'https://bias-map-pink.vercel.app/',
     icon: Scale,
+  },
+  {
+    title: 'RAG Chatbot',
+    description:
+      'An AI assistant that combines document retrieval with LLM reasoning to provide context-aware answers ' +
+      'from uploaded knowledge sources.',
+    techStack: ['Python', 'LangChain', 'ChromaDB', 'Flask', 'Groq'],
+    repoUrl: `${GITHUB_URL}/RAG-Chatbot`,
+    icon: FileSearch,
+  },
+  {
+    title: 'MMS Student Companion',
+    description:
+      'A student-focused mobile application for managing academic information such as CGPA, attendance, ' +
+      'timetables, holidays, and faculty details.',
+    techStack: ['Flutter', 'Dart', 'Supabase', 'Provider'],
+    repoUrl: `${GITHUB_URL}/MMS-Student-Companion`,
+    icon: GraduationCap,
   },
   {
     title: 'Food Rescue Donation Platform',
