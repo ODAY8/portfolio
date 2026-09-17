@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 // migrated from) has no pushed GitHub remote yet, so there's no existing
 // live URL to match -- this defaults to the new repo's likely name.
 // Change this to `/<your-repo-name>/` once you've created/named the repo.
-const BASE_PATH = '/portfolio-react/'
+const BASE_PATH = '/'
 
 export default defineConfig({
   base: BASE_PATH,
