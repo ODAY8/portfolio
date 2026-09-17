@@ -40,6 +40,9 @@ export function MobileMenu({ open, activeIndex, onClose, onNavTap }: MobileMenuP
             {item.label}
           </button>
         ))}
+        <Link to="/architecture" className={styles.item} onClick={onClose}>
+          Architecture
+        </Link>
         <Link to="/problems" className={styles.item} onClick={onClose}>
           Problems Solved
         </Link>

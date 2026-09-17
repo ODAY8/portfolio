@@ -1,0 +1,29 @@
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 400ms ease-out;
+}
+
+.imageLoaded {
+  opacity: 1;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.empty p {
+  font-size: 13px;
+  font-weight: 500;
+}
