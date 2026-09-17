@@ -19,7 +19,13 @@ export function Projects({ sectionRef }: ProjectsProps) {
       />
       <div className={styles.grid}>
         {PROJECTS.map((project, index) => (
-          <ProjectCard key={project.title} project={project} delayMs={index * 90} />
+          <ProjectCard
+            key={project.title}
+            project={project}
+            delayMs={index * 90}
+            accentIndex={index}
+            featured={index === 0}
+          />
         ))}
       </div>
     </SectionContainer>

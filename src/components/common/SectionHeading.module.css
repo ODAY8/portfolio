@@ -1,19 +1,24 @@
 .eyebrow {
-  display: block;
-  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-teal-tint);
+  color: var(--color-accent-teal);
   font-size: var(--text-body-sm-size);
   font-weight: 600;
-  letter-spacing: 1.2px;
-  margin-bottom: 8px;
+  letter-spacing: 0.4px;
+  margin-bottom: 16px;
 }
 
 .title {
   font-size: var(--text-headline-lg-size);
   font-weight: var(--text-headline-lg-weight);
+  letter-spacing: -0.01em;
 }
 
 .subtitle {
-  margin-top: 12px;
+  margin-top: 14px;
   max-width: 640px;
   font-size: var(--text-body-lg-size);
   color: var(--color-text-secondary);

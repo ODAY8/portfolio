@@ -15,7 +15,7 @@ export function Skills({ sectionRef }: SkillsProps) {
       <SectionHeading eyebrow="02 — Skills" title="What I Work With" />
       <div className={styles.grid}>
         {SKILL_CATEGORIES.map((category, index) => (
-          <SkillCard key={category.name} category={category} delayMs={index * 80} />
+          <SkillCard key={category.name} category={category} delayMs={index * 80} accentIndex={index} />
         ))}
       </div>
     </SectionContainer>

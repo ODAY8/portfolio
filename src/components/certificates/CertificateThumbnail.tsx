@@ -12,9 +12,11 @@ interface CertificateThumbnailProps {
 
 /** Falls back to a neutral placeholder if the image hasn't been added to
  * public/certificates/ yet, instead of showing a broken-image icon --
- * shared by the card thumbnail and the lightbox's full view. */
+ * shared by the card thumbnail and the lightbox's full view. Fades the
+ * image in once it's actually decoded rather than popping in mid-paint. */
 export function CertificateThumbnail({ certificate, size = 32, fallbackMessage }: CertificateThumbnailProps) {
   const [failed, setFailed] = useState(false)
+  const [loaded, setLoaded] = useState(false)
 
   if (failed) {
     if (fallbackMessage) {
@@ -32,7 +34,8 @@ export function CertificateThumbnail({ certificate, size = 32, fallbackMessage }
     <img
       src={assetUrl(certificate.imagePath)}
       alt={certificate.imageAlt}
-      className={styles.thumbnail}
+      className={`${styles.thumbnail} ${loaded ? styles.thumbnailLoaded : ''}`}
+      onLoad={() => setLoaded(true)}
       onError={() => setFailed(true)}
     />
   )

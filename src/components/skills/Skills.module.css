@@ -11,21 +11,64 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 14px;
-  padding: 24px;
+  border-radius: var(--radius-lg);
+  padding: 26px;
   display: flex;
   flex-direction: column;
-  min-height: 210px;
+  min-height: 220px;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: var(--color-accent);
+  gap: 12px;
+}
+
+.iconChip {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background);
+  color: var(--color-accent-teal);
+  flex-shrink: 0;
+}
+
+.accentTeal .iconChip {
+  background: var(--color-accent-teal-tint);
+  color: var(--color-accent-teal);
+}
+.accentLavender .iconChip {
+  background: var(--color-accent-lavender-tint);
+  color: var(--color-accent-lavender);
+}
+.accentGreen .iconChip {
+  background: var(--color-accent-green-tint);
+  color: var(--color-accent-green);
+}
+.accentBlue .iconChip {
+  background: var(--color-accent-blue-tint);
+  color: var(--color-accent-blue);
 }
 
 .name {
@@ -35,7 +78,7 @@
 }
 
 .chips {
-  margin-top: 18px;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

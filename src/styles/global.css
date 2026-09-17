@@ -88,10 +88,10 @@ a {
   background: transparent;
 }
 
-/* Text selection theme (app_theme.dart textSelectionTheme) */
+/* Text selection theme */
 ::selection {
-  background: rgba(100, 255, 218, 0.251);
-  color: var(--color-text-primary);
+  background: var(--color-accent-teal-tint);
+  color: var(--color-ink);
 }
 
 /* Keyboard focus visibility -- Flutter has no direct equivalent, added for

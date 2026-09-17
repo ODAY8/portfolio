@@ -2,78 +2,121 @@
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 @media (min-width: 1024px) {
   .layout {
     flex-direction: row;
-    align-items: flex-start;
-    gap: 48px;
+    align-items: stretch;
+    gap: 24px;
   }
 }
 
-.bio {
+.bioCard {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  justify-content: space-between;
+  gap: 32px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-card);
 }
 
 @media (min-width: 1024px) {
-  .bio {
+  .bioCard {
     flex: 3;
   }
 }
 
 .bioText {
   font-size: var(--text-body-lg-size);
+  color: var(--color-text-secondary);
+  max-width: 60ch;
 }
 
-.focusText {
-  font-size: var(--text-body-md-size);
+.statsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
 }
 
-.card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
-  padding: 24px;
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.statLabel {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.sideColumn {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 @media (min-width: 1024px) {
-  .card {
+  .sideColumn {
     flex: 2;
   }
 }
 
-.infoRow {
+.card {
+  flex: 1;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow-card);
+}
+
+.accentCard {
+  background: var(--color-accent-lavender-tint);
+  border-color: transparent;
 }
 
 .iconChip {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: rgba(100, 255, 218, 0.1);
-  color: var(--color-accent);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-accent-teal);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.accentCard .iconChip {
+  background: var(--color-surface);
+  color: var(--color-accent-lavender);
 }
 
 .infoLabel {
   color: var(--color-text-muted);
   font-size: var(--text-body-sm-size);
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-top: 6px;
 }
 
 .infoValue {
   font-size: var(--text-body-md-size);
+  color: var(--color-text-primary);
 }

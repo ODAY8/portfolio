@@ -1,0 +1,81 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-ink);
+  cursor: pointer;
+  opacity: 1;
+  transition:
+    opacity 650ms cubic-bezier(0.65, 0, 0.35, 1),
+    transform 650ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.exiting {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.exiting .center {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+.word {
+  display: flex;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  letter-spacing: 0.02em;
+  color: var(--color-inverse);
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: letterIn 550ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes letterIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.barTrack {
+  width: 220px;
+  max-width: 60vw;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: rgba(246, 243, 236, 0.18);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: var(--color-inverse);
+  border-radius: var(--radius-pill);
+  transition: width 80ms linear;
+}
+
+.percent {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: rgba(246, 243, 236, 0.6);
+}

@@ -3,20 +3,34 @@
   bottom: 24px;
   right: 24px;
   z-index: 30;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: none;
-  background: var(--color-surface);
-  color: var(--color-accent);
+  background: var(--color-ink);
+  color: var(--color-inverse);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 200ms ease-out;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(8px);
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out,
+    background-color 150ms ease-out;
+  box-shadow: var(--shadow-pop);
+}
+
+.button:hover {
+  background: var(--color-ink-hover);
 }
 
 .visible {
   opacity: 1;
+  transform: translateY(0);
+}
+
+.visible:active {
+  transform: translateY(0) scale(0.9);
+  transition-duration: 80ms;
 }
