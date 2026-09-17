@@ -1,0 +1,1 @@
+import{k as e,p as t}from"./index-C8o2JDH5.js";var n=e(`ArrowLeft`,[[`path`,{d:`m12 19-7-7 7-7`,key:`1l729n`}],[`path`,{d:`M19 12H5`,key:`x3x0zl`}]]),r={enter:`_enter_1xacj_1`,pageIn:`_pageIn_1xacj_1`},i=t();function a({children:e}){return(0,i.jsx)(`div`,{className:r.enter,children:e})}export{n,a as t};
