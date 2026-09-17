@@ -222,27 +222,39 @@ export const CERTIFICATES: Certificate[] = [
       'Applications, KIIT Deemed to be University',
   },
   {
-    title: 'Online Conference 33.0',
+    title: 'Online Conference 333',
     category: 'Conference',
     icon: Users,
     organization: 'IMUN',
-    imagePath: '/certificates/imun-online-conference-33.png',
-    imageAlt: 'Certificate for Online Conference 33.0 — IMUN',
+    date: 'Aug 29–30, 2026',
+    imagePath: '/certificates/imun-online-conference-333.png',
+    imageAlt:
+      'Certificate of Appreciation awarded to Mohamed Abdirahman Warsame for successfully participating as a ' +
+      'delegate in IMUN Online Conference 333, August 29-30, 2026',
   },
   {
     title: 'Certificate of Participation',
-    category: 'AI / Competition',
+    category: 'AI / Workshop',
     icon: Trophy,
-    organization: 'Automatrix 2.0 (Agentic AI)',
+    organization: 'USC KIIT — Automatrix 2.0 (Agentic AI)',
+    date: 'Aug 19, 2025',
     imagePath: '/certificates/automatrix-2-agentic-ai.png',
-    imageAlt: 'Certificate of Participation for Automatrix 2.0, an Agentic AI competition',
+    imageAlt:
+      'Certificate of Participation awarded to Mohamed Abdirahman Warsame for active participation in ' +
+      'Automatrix 2.0, a workshop on Agentic AI conducted by USC KIIT under the Training & Placement ' +
+      'Department of KIIT, led by Mr. Manoj Batra',
   },
   {
     title: 'Low-Resource NLP: Techniques and Applications with LLMs',
     category: 'AI / NLP',
     icon: Brain,
+    organization: 'KIIT School of Computer Applications',
+    date: 'Jun 6–10, 2026',
     imagePath: '/certificates/low-resource-nlp-llms.png',
-    imageAlt: 'Certificate for Low-Resource NLP: Techniques and Applications with LLMs',
+    imageAlt:
+      'Certificate awarded to Mohamed Abdirahman Warsame for successfully completing the 5-day workshop on ' +
+      'Low-Resource NLP: Techniques and Applications with LLMs, organized by the School of Computer ' +
+      'Applications, KIIT Deemed to be University, June 6-10, 2026',
   },
 ]
 

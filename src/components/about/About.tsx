@@ -1,5 +1,5 @@
 import type { Ref } from 'react'
-import { BIO, CERTIFICATES, CURRENT_FOCUS, EDUCATION, ICONS, PROJECTS, SKILL_CATEGORIES } from '../../data/content'
+import { BIO, CURRENT_FOCUS, EDUCATION, ICONS, PROJECTS, SKILL_CATEGORIES } from '../../data/content'
 import { FadeInSection } from '../common/FadeInSection'
 import { SectionHeading } from '../common/SectionHeading'
 import { SectionContainer } from '../common/SectionContainer'
@@ -10,11 +10,19 @@ interface AboutProps {
   sectionRef?: Ref<HTMLElement>
 }
 
-/** Small stats derived from real content data -- never fabricated. */
+/** Stats shown in the About section. "Technologies Used"/"Skills" are
+ * derived live from real content data -- distinct metrics (every unique
+ * technology across all projects' tech stacks vs. the Skills section's
+ * own category breakdown), deliberately labeled apart so two different
+ * numbers don't sit side by side under the same word. "Projects Built"
+ * is a deliberate exception -- the user asked for a stylized "10+" label
+ * rather than the exact PROJECTS.length, so it's a manually-set
+ * approximate figure, not a live count (update it if the real count
+ * grows past it). */
 const STATS = [
-  { value: PROJECTS.length, label: 'Projects Built' },
-  { value: CERTIFICATES.length, label: 'Certifications' },
-  { value: SKILL_CATEGORIES.reduce((sum, c) => sum + c.skills.length, 0), label: 'Technologies' },
+  { value: 10, suffix: '+', label: 'Projects Built' },
+  { value: new Set(PROJECTS.flatMap((p) => p.techStack)).size, label: 'Technologies Used' },
+  { value: SKILL_CATEGORIES.reduce((sum, c) => sum + c.skills.length, 0), label: 'Skills' },
 ]
 
 export function About({ sectionRef }: AboutProps) {
@@ -27,7 +35,7 @@ export function About({ sectionRef }: AboutProps) {
             <p className={styles.bioText}>{BIO}</p>
             <div className={styles.statsRow}>
               {STATS.map((stat) => (
-                <StatCounter key={stat.label} value={stat.value} label={stat.label} />
+                <StatCounter key={stat.label} value={stat.value} label={stat.label} suffix={stat.suffix} />
               ))}
             </div>
           </div>
