@@ -27,6 +27,8 @@ export interface Certificate {
   organization?: string
   /** Year or date, only when actually known -- never guessed. */
   date?: string
+  /** Optional summary or description of what was built or achieved. */
+  description?: string
   /** Path under /certificates/, relative to the site root. */
   imagePath: string
   imageAlt: string

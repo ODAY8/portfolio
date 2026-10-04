@@ -26,6 +26,7 @@ export function CertificateCard({ certificate, delayMs, onView }: CertificateCar
           </div>
           <h3 className={styles.title}>{certificate.title}</h3>
           {certificate.organization && <p className={styles.organization}>{certificate.organization}</p>}
+          {certificate.description && <p className={styles.description}>{certificate.description}</p>}
           <div className={styles.spacer} />
           <Button
             variant="secondary"

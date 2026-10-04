@@ -120,6 +120,17 @@
   text-overflow: ellipsis;
 }
 
+.description {
+  margin-top: 10px;
+  font-size: var(--text-body-sm-size);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .spacer {
   flex: 1;
 }

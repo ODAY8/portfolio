@@ -56,6 +56,7 @@ export function CertificateLightbox({ certificate, onClose }: CertificateLightbo
           <div className={styles.headerText}>
             <h3 className={styles.headerTitle}>{certificate.title}</h3>
             {certificate.organization && <p className={styles.headerOrg}>{certificate.organization}</p>}
+            {certificate.description && <p className={styles.headerDesc}>{certificate.description}</p>}
           </div>
           <button type="button" className={styles.closeButton} onClick={requestClose} aria-label="Close">
             <X size={22} />

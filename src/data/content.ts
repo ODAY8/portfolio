@@ -209,11 +209,31 @@ export const PROJECTS: Project[] = [
 // ---------------------------------------------------------------------
 export const CERTIFICATES: Certificate[] = [
   {
+    title: 'AI Infra Summit Hackathon',
+    category: 'Hackathon',
+    icon: Trophy,
+    organization: 'Lablab.ai / NativelyAI',
+    date: 'Sep 10–16, 2026',
+    description:
+      'Participated in the AI Infra Summit Hackathon 2026, where I worked on EdgePilot AI, an AI-powered ' +
+      'monitoring and analysis solution designed to detect events from video frames and provide intelligent ' +
+      'insights using computer vision and AI reasoning. The project involved integrating AI models, video ' +
+      'processing, and backend services to build a functional AI-powered pipeline.',
+    imagePath: '/certificates/ai-infra-summit-hackathon.jpg',
+    imageAlt:
+      'Certificate of Completion awarded to Mohamed Warsame for outstanding performance, attendance, ' +
+      'successfully completing and submitting a solution based on AI/ML API, Groq, and Gemini AI in the ' +
+      'AI Infra Summit Hackathon (Sep 10 to 16, 2026), issued by Lablab.ai and NativelyAI',
+  },
+  {
     title: 'Summer Internship 2026',
     category: 'Internship',
     icon: Briefcase,
     organization: 'KIIT School of Computer Applications',
     date: 'May – Jul 2026',
+    description:
+      'Completed an 8-week summer internship covering AI/ML pipelines, cybersecurity concepts, ' +
+      'computer vision, and natural language processing applications.',
     imagePath: '/certificates/summer-internship-2026.png',
     imageAlt:
       'Certificate awarded to Mohamed Abdirahman Warsame for completing ' +
@@ -227,6 +247,9 @@ export const CERTIFICATES: Certificate[] = [
     icon: Users,
     organization: 'IMUN',
     date: 'Aug 29–30, 2026',
+    description:
+      'Participated as a delegate in international committee debates covering global diplomacy, ' +
+      'consensus building, and collaborative resolution drafting.',
     imagePath: '/certificates/imun-online-conference-333.png',
     imageAlt:
       'Certificate of Appreciation awarded to Mohamed Abdirahman Warsame for successfully participating as a ' +
@@ -238,6 +261,9 @@ export const CERTIFICATES: Certificate[] = [
     icon: Trophy,
     organization: 'USC KIIT — Automatrix 2.0 (Agentic AI)',
     date: 'Aug 19, 2025',
+    description:
+      'Attended an intensive workshop on Agentic AI covering autonomous agent architectures, ' +
+      'workflow automation, and multi-agent coordination.',
     imagePath: '/certificates/automatrix-2-agentic-ai.png',
     imageAlt:
       'Certificate of Participation awarded to Mohamed Abdirahman Warsame for active participation in ' +
@@ -250,6 +276,9 @@ export const CERTIFICATES: Certificate[] = [
     icon: Brain,
     organization: 'KIIT School of Computer Applications',
     date: 'Jun 6–10, 2026',
+    description:
+      'Completed a 5-day technical workshop on modern NLP methodologies, transfer learning techniques, ' +
+      'and fine-tuning large language models for low-resource domains.',
     imagePath: '/certificates/low-resource-nlp-llms.png',
     imageAlt:
       'Certificate awarded to Mohamed Abdirahman Warsame for successfully completing the 5-day workshop on ' +
