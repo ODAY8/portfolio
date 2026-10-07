@@ -177,6 +177,7 @@ export const PROJECTS: Project[] = [
       'with a Node.js/Express backend and Prisma ORM.',
     techStack: ['Node.js', 'Express', 'Prisma', 'JavaScript'],
     repoUrl: `${GITHUB_URL}/Food-Rescue-Donation-Platform`,
+    liveUrl: 'https://www.foodrescue.cfd',
     icon: ListChecks,
   },
   {
