@@ -94,6 +94,7 @@ export const ARCHITECTURE_PROJECTS: ArchitectureProject[] = [
   {
     id: 'food-rescue',
     title: 'Food Rescue Platform',
+    liveUrl: 'https://www.foodrescue.cfd',
     category: 'Full-Stack',
     description: 'A platform designed to connect food donors with organizations and help reduce food waste.',
     systemOverview:
